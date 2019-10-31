@@ -11,7 +11,7 @@ public class Done_GameController : MonoBehaviour
     public float spawnWait;
     public float startWait;
     public float waveWait;
-
+        
     public Text scoreText;
     public Text restartText;
     public Text gameOverText;
@@ -19,6 +19,10 @@ public class Done_GameController : MonoBehaviour
     private bool gameOver;
     private bool restart;
     private int score;
+
+    //---UI ship choice
+    [SerializeField]
+    private GameObject m_UISelection;
 
     void Start()
     {
@@ -28,7 +32,12 @@ public class Done_GameController : MonoBehaviour
         gameOverText.text = "";
         score = 0;
         UpdateScore();
-        StartCoroutine(SpawnWaves());
+
+        if (ShipChoice())
+        {
+            StartCoroutine(SpawnWaves());
+        }
+
     }
 
     void Update()
@@ -81,5 +90,11 @@ public class Done_GameController : MonoBehaviour
     {
         gameOverText.text = "Game Over!";
         gameOver = true;
+    }
+
+    public bool ShipChoice()
+    {
+
+        return false;
     }
 }
