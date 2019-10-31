@@ -38,6 +38,11 @@ public class Done_DestroyByContact : MonoBehaviour
 			Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
 			gameController.GameOver();
 		}
+		if (other.tag == "Player2")
+		{
+			Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+			gameController.GameOver(); // if multiplayer do game over accure if only one of the ship if dead
+		}
 		
 		gameController.AddScore(scoreValue);
 		Destroy (other.gameObject);
