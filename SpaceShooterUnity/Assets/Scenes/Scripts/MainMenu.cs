@@ -9,7 +9,13 @@ public class MainMenu : MonoBehaviour
     {
         if(aChoice == 1)
         {
-            SceneManager.LoadScene("MainGame");
+            PlayerPrefs.SetInt("NumberPlayer", 1);
         }
+        else if(aChoice == 2)
+        {
+            PlayerPrefs.SetInt("NumberPlayer", 2);
+        }
+
+        SceneManager.LoadScene("Done_Main");
     }
 }

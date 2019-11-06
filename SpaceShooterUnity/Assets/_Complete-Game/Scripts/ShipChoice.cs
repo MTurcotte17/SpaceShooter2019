@@ -10,6 +10,8 @@ public class ShipChoice : MonoBehaviour
     private GameObject m_Ship01;
     [SerializeField]
     private GameObject m_Ship02;
+    [SerializeField]
+    private Transform m_SpawnPos;
 
     [SerializeField]
     private GameObject m_ShipActivate;
@@ -22,11 +24,25 @@ public class ShipChoice : MonoBehaviour
 
     [SerializeField]
     private bool m_isMulti;
+    private int m_PlayerNumber = 0;
     [SerializeField]
     private bool m_BossAchievement;
 
+    [SerializeField]
+    private Done_GameController m_GameController;
+
+    [SerializeField]
+    private GameObject m_CanvasActivation;
+    private int choiceCount = 0;
+    private float t = 0;
+
     private void Start()
     {
+        if (PlayerPrefs.GetInt("NumberPlayer") == 2 )
+        {
+            m_isMulti = true;
+        }
+
         if (m_BossAchievement)
         {
             m_ShipActivate.SetActive(true);
@@ -38,22 +54,35 @@ public class ShipChoice : MonoBehaviour
 
         if (m_isMulti)
         {
-
+            m_PlayerNumber++;
         }
     }
+
     public void ShipSpawn(int choice)
     {
-        switch(choice)
+      
+        if (choice == 0 )
         {
-            case 0:
-                Instantiate(m_Ship00, new Vector3(1, 0, 0), Quaternion.identity);
-                break;
-            case 1:
-                Instantiate(m_Ship01, new Vector3(1, 0, 0), Quaternion.identity);
-                break;
-            case 2:
-                Instantiate(m_Ship02, new Vector3(1, 0, 0), Quaternion.identity);
-                break;
+            Instantiate(m_Ship00, new Vector3(t, 0, 0), Quaternion.identity);
         }
+        else if (choice == 1)
+        {
+            Instantiate(m_Ship01, new Vector3(t, 0, 0), Quaternion.identity);
+        }
+        else if (choice == 2)
+        {
+            Instantiate(m_Ship02, new Vector3(t, 0, 0), Quaternion.identity);
+        }
+        
+        t += 5f;
+
+        if (choiceCount > 0)
+        {
+            m_PlayerOneText.SetActive(false);
+            m_PlayerTwoText.SetActive(true);
+            m_GameController.ShipSpawnedhoice(true);
+        }
+
+        choiceCount++;
     }
 }

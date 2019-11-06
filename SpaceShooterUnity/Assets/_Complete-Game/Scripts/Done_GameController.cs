@@ -23,6 +23,8 @@ public class Done_GameController : MonoBehaviour
     //---UI ship choice
     [SerializeField]
     private GameObject m_UISelection;
+    private bool m_ShipSpawned = false;
+    private int tempCount = 0;
 
     void Start()
     {
@@ -32,16 +34,16 @@ public class Done_GameController : MonoBehaviour
         gameOverText.text = "";
         score = 0;
         UpdateScore();
-
-        if (ShipChoice())
-        {
-            StartCoroutine(SpawnWaves());
-        }
-
     }
 
     void Update()
     {
+        if (m_ShipSpawned && tempCount < 1)
+        {
+            tempCount++;
+            StartCoroutine(SpawnWaves());
+        }
+
         if (restart)
         {
             if (Input.GetKeyDown(KeyCode.R))
@@ -92,9 +94,9 @@ public class Done_GameController : MonoBehaviour
         gameOver = true;
     }
 
-    public bool ShipChoice()
+    public void ShipSpawnedhoice(bool a)
     {
-
-        return false;
+        m_ShipSpawned = a;
+        m_UISelection.SetActive(false);
     }
 }
