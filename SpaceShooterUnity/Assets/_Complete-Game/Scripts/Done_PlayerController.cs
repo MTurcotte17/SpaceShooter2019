@@ -7,13 +7,15 @@ public class Done_Boundary
 	public float xMin, xMax, zMin, zMax;
 }
 
+public enum ePlayerNumber
+{
+    PlayerOne,
+    PlayerTwo
+}
+
 public class Done_PlayerController : MonoBehaviour
 {
-	public enum ePlayerNumber
-	{
-		PlayerOne,
-		PlayerTwo
-	}
+    [SerializeField]
 	private ePlayerNumber m_PlayerNumber;
 	
 	[SerializeField]
@@ -92,4 +94,9 @@ public class Done_PlayerController : MonoBehaviour
 		
 		
 	}
+
+    public void AssignEnum(ePlayerNumber ap)
+    {
+        m_PlayerNumber = ap;
+    }
 }

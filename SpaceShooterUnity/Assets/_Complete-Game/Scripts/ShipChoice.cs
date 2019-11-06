@@ -64,14 +64,45 @@ public class ShipChoice : MonoBehaviour
         if (choice == 0 )
         {
             Instantiate(m_Ship00, new Vector3(t, 0, 0), Quaternion.identity);
+            Done_PlayerController dPlayer = m_Ship00.GetComponent<Done_PlayerController>();
+            if (choiceCount == 0)
+            {
+                dPlayer.AssignEnum(ePlayerNumber.PlayerOne);
+            }
+            else if (choiceCount == 1)
+            {
+                dPlayer.AssignEnum(ePlayerNumber.PlayerTwo);
+                Debug.Log("da fuck");
+            }
         }
         else if (choice == 1)
         {
+            Debug.Log("yoooooooooooooooooooooooo");
             Instantiate(m_Ship01, new Vector3(t, 0, 0), Quaternion.identity);
+            Done_PlayerController dPlayer = m_Ship01.GetComponent<Done_PlayerController>();
+            if (choiceCount == 0)
+            {
+                dPlayer.AssignEnum(ePlayerNumber.PlayerOne);
+            }
+            else if (choiceCount == 1)
+            {
+                dPlayer.AssignEnum(ePlayerNumber.PlayerTwo);
+                Debug.Log("da fuck");
+            }
         }
         else if (choice == 2)
         {
             Instantiate(m_Ship02, new Vector3(t, 0, 0), Quaternion.identity);
+            Done_PlayerController dPlayer = m_Ship02.GetComponent<Done_PlayerController>();
+            if (choiceCount == 0)
+            {
+                dPlayer.AssignEnum(ePlayerNumber.PlayerOne);
+            }
+            else if (choiceCount == 1)
+            {
+                dPlayer.AssignEnum(ePlayerNumber.PlayerTwo);
+                Debug.Log("da fuck");
+            }
         }
         
         t += 5f;
@@ -84,5 +115,6 @@ public class ShipChoice : MonoBehaviour
         }
 
         choiceCount++;
+        Debug.Log(choiceCount);
     }
 }
