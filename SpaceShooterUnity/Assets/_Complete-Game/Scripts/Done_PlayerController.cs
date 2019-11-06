@@ -7,13 +7,15 @@ public class Done_Boundary
 	public float xMin, xMax, zMin, zMax;
 }
 
+public enum ePlayerNumber
+{
+	PlayerOne,
+	PlayerTwo
+}
+
 public class Done_PlayerController : MonoBehaviour
 {
-	public enum ePlayerNumber
-	{
-		PlayerOne,
-		PlayerTwo
-	}
+	[SerializeField]
 	private ePlayerNumber m_PlayerNumber;
 	
 	[SerializeField]
@@ -60,7 +62,7 @@ public class Done_PlayerController : MonoBehaviour
 	void FixedUpdate ()
 	{
 		//switch case if 1 or 2 player mode
-		switch (m_PlayerNumber)
+		/* switch (m_PlayerNumber)
 		{
 			case ePlayerNumber.PlayerOne:
 				float moveHorizontal = Input.GetAxis ("Horizontal1");
@@ -77,7 +79,26 @@ public class Done_PlayerController : MonoBehaviour
 				Vector3 movement2 = new Vector3 (moveHorizontal2, 0.0f, moveVertical2);
 				GetComponent<Rigidbody>().velocity = movement2 * m_speed;
 			break;
+		}*/
+
+		if(m_PlayerNumber == ePlayerNumber.PlayerOne)
+		{
+			float moveHorizontal = Input.GetAxis ("Horizontal1");
+			float moveVertical = Input.GetAxis ("Vertical1");
+
+			Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+			GetComponent<Rigidbody>().velocity = movement * m_speed;
 		}
+		if(m_PlayerNumber == ePlayerNumber.PlayerTwo)
+		{
+			float moveHorizontal2 = Input.GetAxis("Horizontal2");
+			float moveVertical2 = Input.GetAxis("Vertical2");
+
+			Vector3 movement2 = new Vector3 (moveHorizontal2, 0.0f, moveVertical2);
+			GetComponent<Rigidbody>().velocity = movement2 * m_speed;
+		}
+
+		
 		
 		/// do not add in the switch case
 		GetComponent<Rigidbody>().position = new Vector3
@@ -90,6 +111,11 @@ public class Done_PlayerController : MonoBehaviour
 		GetComponent<Rigidbody>().rotation = Quaternion.Euler (0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -m_tilt);
 	
 		
+		
+	}
+
+	public void PlayerSwitch()
+	{
 		
 	}
 }
