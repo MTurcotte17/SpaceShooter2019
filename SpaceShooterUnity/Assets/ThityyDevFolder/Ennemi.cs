@@ -91,14 +91,11 @@ public class Ennemi : MonoBehaviour
 
         if(other.GetComponent<Done_PlayerController>() != null)
         {
-            //gameController.GameOver();
-            /*
-                    The GameController must be done for me to call the GameOver();
-                    and AddScore();
-            */
+            Done_GameController.Instance.GameOver();
+            
         }
 		
-		//gameController.AddScore(m_Score);
+		Done_GameController.Instance.AddScore(m_Score);
 		Destroy (other.gameObject);
 		Destroy (gameObject);
 	}

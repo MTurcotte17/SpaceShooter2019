@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 
-public class Done_GameController : MonoBehaviour
+public class Done_GameController : Singleton<Done_GameController>
 {
     public GameObject[] hazards;
     public Vector3 spawnValues;
@@ -24,7 +24,7 @@ public class Done_GameController : MonoBehaviour
     [SerializeField]
     private GameObject m_UISelection;
 
-    void Start()
+    private void Start()
     {
         gameOver = false;
         restart = false;
@@ -40,7 +40,7 @@ public class Done_GameController : MonoBehaviour
 
     }
 
-    void Update()
+    private void Update()
     {
         if (restart)
         {
@@ -51,7 +51,7 @@ public class Done_GameController : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnWaves()
+    private IEnumerator SpawnWaves()
     {
         yield return new WaitForSeconds(startWait);
         while (true)
@@ -81,7 +81,7 @@ public class Done_GameController : MonoBehaviour
         UpdateScore();
     }
 
-    void UpdateScore()
+    private void UpdateScore()
     {
         scoreText.text = "Score: " + score;
     }
