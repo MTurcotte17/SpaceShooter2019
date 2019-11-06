@@ -3,17 +3,22 @@ using System.Collections;
 
 public class Done_WeaponController : MonoBehaviour
 {
-	public GameObject shot;
-	public Transform shotSpawn;
-	public float fireRate;
-	public float delay;
+	[SerializeField]
+	private GameObject shot;
+	[SerializeField]
+	private Transform shotSpawn;
+	[SerializeField]
+	private float fireRate;
+	[SerializeField]
+	private float delay;
+	
 
-	void Start ()
+	private void Start ()
 	{
 		InvokeRepeating ("Fire", delay, fireRate);
 	}
 
-	void Fire ()
+	private void Fire ()
 	{
 		Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 		GetComponent<AudioSource>().Play();
