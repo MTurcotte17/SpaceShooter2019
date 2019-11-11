@@ -114,8 +114,8 @@ public class Done_PlayerController : MonoBehaviour
 		
 	}
 
-	public void PlayerSwitch()
+	public void PlayerSwitch(ePlayerNumber aPlayer)
 	{
-		
+        m_PlayerNumber = aPlayer;
 	}
 }

@@ -17,6 +17,6 @@ public class MainMenu : MonoBehaviour
         {
             PlayerPrefs.SetInt("PlayerNumber", 2);
         }
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("Done_Main");
     }
 }
