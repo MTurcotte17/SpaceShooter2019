@@ -27,6 +27,11 @@ public class ShipChoice : MonoBehaviour
     [SerializeField]
     private bool m_BossAchievement;
 
+<<<<<<< HEAD
+=======
+    [SerializeField]
+    private Done_PlayerController m_PlayerController;
+>>>>>>> e47737f5c4babb65d1e3fc291a112ef130a07b93
     private int countPlayer = 1;
 
     [SerializeField]
@@ -53,8 +58,11 @@ public class ShipChoice : MonoBehaviour
     }
     public void ShipSpawn(int choice)
     {
+<<<<<<< HEAD
         Debug.Log(countPlayer);
 
+=======
+>>>>>>> e47737f5c4babb65d1e3fc291a112ef130a07b93
         if (countPlayer == 1)
         {
             m_StartPos = -5;
@@ -63,11 +71,15 @@ public class ShipChoice : MonoBehaviour
         {
             m_StartPos = 5;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e47737f5c4babb65d1e3fc291a112ef130a07b93
         switch(choice)
         {
             
             case 0:
+<<<<<<< HEAD
                 m_ShipChoice = m_Ship00;
             
                 //Done_PlayerController playerController = m_Ship00.GetComponent<Done_PlayerController>();
@@ -133,6 +145,46 @@ public class ShipChoice : MonoBehaviour
             }
         }
 
+=======
+                Instantiate(m_Ship00, new Vector3(m_StartPos, 0, 0), Quaternion.identity);
+                Done_PlayerController playerController = m_Ship00.GetComponent<Done_PlayerController>();
+                if (countPlayer == 1)
+                {
+                    playerController.PlayerSwitch(ePlayerNumber.PlayerOne);
+                }
+                else
+                {
+                    playerController.PlayerSwitch(ePlayerNumber.PlayerTwo);
+                }
+                
+                break;
+            case 1:
+                Instantiate(m_Ship01, new Vector3(m_StartPos, 0, 0), Quaternion.identity);
+                Done_PlayerController playerController01 = m_Ship00.GetComponent<Done_PlayerController>();
+                if (countPlayer == 1)
+                {
+                    playerController01.PlayerSwitch(ePlayerNumber.PlayerOne);
+                }
+                else
+                {
+                    playerController01.PlayerSwitch(ePlayerNumber.PlayerTwo);
+                }
+                break;
+            case 2:
+                Instantiate(m_Ship02, new Vector3(m_StartPos , 0, 0), Quaternion.identity);
+                Done_PlayerController playerController02 = m_Ship00.GetComponent<Done_PlayerController>();
+                if (countPlayer == 1)
+                {
+                    playerController02.PlayerSwitch(ePlayerNumber.PlayerOne);
+                }
+                else
+                {
+                    playerController02.PlayerSwitch(ePlayerNumber.PlayerTwo);
+                }
+                break;
+        }
+
+>>>>>>> e47737f5c4babb65d1e3fc291a112ef130a07b93
 
         if (PlayerPrefs.GetInt("PlayerNumber") == 1 && countPlayer == 1)
         {

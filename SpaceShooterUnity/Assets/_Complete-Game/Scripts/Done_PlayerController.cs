@@ -114,6 +114,7 @@ public class Done_PlayerController : MonoBehaviour
 		
 	}
 
+<<<<<<< HEAD
 	public void PlayerSwitch(int aPlayer)
 	{
 		Debug.Log(aPlayer);
@@ -125,5 +126,10 @@ public class Done_PlayerController : MonoBehaviour
 		{
 			m_PlayerNumber = ePlayerNumber.PlayerTwo;
 		}
+=======
+	public void PlayerSwitch(ePlayerNumber aPlayer)
+	{
+        m_PlayerNumber = aPlayer;
+>>>>>>> e47737f5c4babb65d1e3fc291a112ef130a07b93
 	}
 }
