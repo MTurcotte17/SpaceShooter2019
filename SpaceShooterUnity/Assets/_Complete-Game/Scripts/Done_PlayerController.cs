@@ -15,8 +15,7 @@ public enum ePlayerNumber
 
 public class Done_PlayerController : MonoBehaviour
 {
-    
-
+  
     private ePlayerNumber m_PlayerNumber;
 
     private int m_Int = 10;
@@ -85,28 +84,6 @@ public class Done_PlayerController : MonoBehaviour
 			break;
 		}
 
-        //if (m_PlayerNumber == ePlayerNumber.PlayerOne)
-        //{
-        //    float movehorizontal = input.getaxis("horizontal1");
-        //    float movevertical = input.getaxis("vertical1");
-
-        //    vector3 movement = new vector3(movehorizontal, 0.0f, movevertical);
-        //    getcomponent<rigidbody>().velocity = movement * m_speed;
-        //}
-        //if (m_PlayerNumber == ePlayerNumber.PlayerTwo)
-        //{
-        //    float moveHorizontal2 = Input.GetAxis("Horizontal2");
-        //    float moveVertical2 = Input.GetAxis("Vertical2");
-
-        //    Vector3 movement2 = new Vector3(moveHorizontal2, 0.0f, moveVertical2);
-        //    GetComponent<Rigidbody>().velocity = movement2 * m_speed;
-        //}
-    
-        //float movehorizontal = input.getaxis("horizontal" + m_playernumber);
-        //float movevertical = input.getaxis("vertical" + m_playernumber);
-
-        //vector3 movement = new vector3(movehorizontal, 0.0f, movevertical);
-        //getcomponent<rigidbody>().velocity = movement * m_speed;
 
         //      /// do not add in the switch case
         //      GetComponent<Rigidbody>().position = new Vector3
