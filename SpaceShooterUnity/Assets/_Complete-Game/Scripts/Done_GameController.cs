@@ -37,9 +37,6 @@ public class Done_GameController : Singleton<Done_GameController>
         score = 0;
         UpdateScore();
 
-        
-        
-
     }
 
     private void Update()
