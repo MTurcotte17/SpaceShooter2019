@@ -131,8 +131,6 @@ public class Done_PlayerController : MonoBehaviour
         else
         {
             m_PlayerNumber = ePlayerNumber.PlayerTwo;
-        }
-        Debug.Log(m_PlayerNumber);
-        
+        }    
 	}
 }
