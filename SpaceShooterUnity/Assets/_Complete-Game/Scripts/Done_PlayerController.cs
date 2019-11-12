@@ -114,8 +114,16 @@ public class Done_PlayerController : MonoBehaviour
 		
 	}
 
-	public void PlayerSwitch()
+	public void PlayerSwitch(int aPlayer)
 	{
-		
+		Debug.Log(aPlayer);
+		if(aPlayer == 1)
+		{
+			m_PlayerNumber = ePlayerNumber.PlayerOne;
+		}
+		else
+		{
+			m_PlayerNumber = ePlayerNumber.PlayerTwo;
+		}
 	}
 }

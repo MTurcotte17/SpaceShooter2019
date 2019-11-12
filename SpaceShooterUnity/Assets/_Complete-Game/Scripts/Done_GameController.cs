@@ -21,8 +21,12 @@ public class Done_GameController : Singleton<Done_GameController>
     private int score;
 
     //---UI ship choice
-    [SerializeField]
-    private GameObject m_UISelection;
+    private bool m_GameStart = false;
+    public bool GameStart
+    {
+        set { m_GameStart = value; }
+    }
+
 
     private void Start()
     {
@@ -33,15 +37,18 @@ public class Done_GameController : Singleton<Done_GameController>
         score = 0;
         UpdateScore();
 
-        if (ShipChoice())
-        {
-            StartCoroutine(SpawnWaves());
-        }
+        
+        
 
     }
 
     private void Update()
     {
+        if (m_GameStart)
+        {
+            StartCoroutine(SpawnWaves());
+            m_GameStart = false;
+        }
         if (restart)
         {
             if (Input.GetKeyDown(KeyCode.R))
@@ -92,9 +99,4 @@ public class Done_GameController : Singleton<Done_GameController>
         gameOver = true;
     }
 
-    public bool ShipChoice()
-    {
-
-        return false;
-    }
 }
