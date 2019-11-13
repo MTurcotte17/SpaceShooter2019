@@ -7,9 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void LoadGame(int aChoice)
     {
-        if(aChoice == 1)
-        {
-            SceneManager.LoadScene("Done_Main");
-        }
+        SCManager.Instance.PlayerNumber = aChoice;   
+        SceneManager.LoadScene("Done_Main");   
     }
 }

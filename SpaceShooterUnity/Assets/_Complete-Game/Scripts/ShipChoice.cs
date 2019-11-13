@@ -131,12 +131,12 @@ public class ShipChoice : MonoBehaviour
         }
 
 
-        if (PlayerPrefs.GetInt("PlayerNumber") == 1 && countPlayer == 1)
+        if (SCManager.Instance.PlayerNumber == 1 && countPlayer == 1)
         {
             m_UIChoiceScreen.SetActive(false);
             m_GameController.GameStart = true;
         }
-        else if (PlayerPrefs.GetInt("PlayerNumber") == 2 && countPlayer == 2)
+        else if (SCManager.Instance.PlayerNumber == 2 && countPlayer == 2)
         {
             m_UIChoiceScreen.SetActive(false);
             m_GameController.GameStart = true;
