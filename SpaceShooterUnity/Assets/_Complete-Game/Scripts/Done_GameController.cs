@@ -16,8 +16,13 @@ public class Done_GameController : Singleton<Done_GameController>
     public Text restartText;
     public Text gameOverText;
 
+    public GameObject m_Boss;
+    public int m_HazardsToBoss = 5;
+    private int m_CurrentHazardCount = 0;
+
     private bool gameOver;
     private bool restart;
+    private bool m_BossUp = false;
     private int score;
 
     //---UI ship choice
@@ -43,7 +48,16 @@ public class Done_GameController : Singleton<Done_GameController>
     {
         if (m_GameStart)
         {
-            StartCoroutine(SpawnWaves());
+            if(m_CurrentHazardCount > m_HazardsToBoss)
+            {
+                
+            }
+            else
+            {
+                m_CurrentHazardCount++;
+                Debug.Log(m_CurrentHazardCount);
+                StartCoroutine(SpawnWaves());
+            }
             m_GameStart = false;
         }
         if (restart)
@@ -60,15 +74,30 @@ public class Done_GameController : Singleton<Done_GameController>
         yield return new WaitForSeconds(startWait);
         while (true)
         {
-            for (int i = 0; i < hazardCount; i++)
-            {
-                GameObject hazard = hazards[Random.Range(0, hazards.Length)];
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-                Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(hazard, spawnPosition, spawnRotation);
-                yield return new WaitForSeconds(spawnWait);
+            if(!m_BossUp)
+            {    
+                if(m_CurrentHazardCount > m_HazardsToBoss)
+                {
+                    GameObject Boss = Instantiate(m_Boss, m_Boss.transform.position, m_Boss.transform.rotation);
+                    m_BossUp = true;
+                }
+                else
+                {
+                    for (int i = 0; i < hazardCount; i++)
+                    {
+                        GameObject hazard = hazards[Random.Range(0, hazards.Length)];
+                        Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                        Quaternion spawnRotation = Quaternion.identity;
+                        Instantiate(hazard, spawnPosition, spawnRotation);
+                        m_CurrentHazardCount ++;
+                        Debug.Log(m_CurrentHazardCount);
+
+                        yield return new WaitForSeconds(spawnWait);
+                    }
+                }
             }
             yield return new WaitForSeconds(waveWait);
+
 
             if (gameOver)
             {

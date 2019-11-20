@@ -75,6 +75,7 @@ public class Ennemi : MonoBehaviour
         Move();
         InitManoeuvre();
 		InvokeRepeating ("Fire", m_Delay, m_FireRate);
+        m_Boundary = m_Data.GetBoundary();
 	}
 
     private void FixedUpdate ()

@@ -19,8 +19,9 @@ public class BoltController : MonoBehaviour
         m_InitPos = aInitPos;
         m_Speed = aSpeed;
         m_Rotation = aRotation;
-        //Debug.Log(aRotation + "<- given rot || Set rot ->" + m_Rotation);
+        Debug.Log(aRotation + "<- given rot || Set rot ->" + m_Rotation);
         transform.Rotate(new Vector3(0, m_Rotation.y, 0));
+
     }
 
     private void Update()
